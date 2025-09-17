@@ -1,12 +1,15 @@
 from pathlib import Path
 from playwright.sync_api import sync_playwright
+import os
 
 def test_incremento_contador(tmp_path):
     html_path = Path(__file__).resolve().parents[1] / "index.html"
     url = f"file://{html_path}"
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
+        headless_mode = os.getenv("CI", "false") == "true"  # Actions define CI=true
+        browser = p.chromium.launch(headless=headless_mode)
+
         page = browser.new_page()
 
         # Abre seu arquivo HTML local
