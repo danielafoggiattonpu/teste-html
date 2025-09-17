@@ -6,7 +6,7 @@ def test_incremento_contador(tmp_path):
     url = f"file://{html_path}"
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False, slow_mo=500)
+        browser = p.chromium.launch(headless=True)
         page = browser.new_page()
 
         # Abre seu arquivo HTML local
@@ -22,6 +22,5 @@ def test_incremento_contador(tmp_path):
 
         # Verifica se o contador atualizou para 3
         assert contador.inner_text() == "Você clicou 3 vezes."
-        page.wait_for_timeout(2000)
 
         browser.close()
