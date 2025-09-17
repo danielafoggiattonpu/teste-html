@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Página Simples</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Olá, Mundo!</h1>
+    <p id="contador">Você clicou 0 vezes.</p>
+    <button onclick="incrementar()">Clique aqui</button>
+
+    <script>
+      let count = 0;
+      function incrementar() {
+        count++;
+        document.getElementById("contador").textContent = `Você clicou ${count} vezes.`;
+      }
+    </script>
+  </body>
+</html>
